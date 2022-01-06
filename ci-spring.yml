@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-spring
+  labels:
+    app: ci-spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ci-spring
+  template:
+    metadata:
+      labels:
+        app: ci-spring
+    spec:
+      containers:
+      - name: ci-spring
+        image: hugogamaliel/ci-spring:latest
+        ports:
+        - containerPort: 8080

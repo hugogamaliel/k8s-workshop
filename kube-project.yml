@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-service
+  labels:
+    app: rest-service-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rest-service
+  template:
+    metadata:
+      labels:
+        app: rest-service
+    spec:
+      containers:
+      - name: rest-service
+        image: hugogamaliel/rest-service:latest
+        ports:
+        - containerPort: 8080
